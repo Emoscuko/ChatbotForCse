@@ -1,0 +1,54 @@
+2025/10/19-20:52:01.675 80dd3 Reusing MANIFEST /Users/emo/Desktop/ChatbotForCse/tokens/session/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/MANIFEST-000001
+2025/10/19-20:52:01.675 80dd3 Recovering log #2312
+2025/10/19-20:52:01.685 80dd3 Reusing old log /Users/emo/Desktop/ChatbotForCse/tokens/session/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/002312.log 
+2025/10/19-20:52:02.709 80de4 Manual compaction at level-0 from '\x00I\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00J\x00\x00\x00' @ 0 : 0; will stop at (end)
+2025/10/19-20:52:06.104 80de3 Level-0 table #2341: started
+2025/10/19-20:52:06.117 80de3 Level-0 table #2341: 1220222 bytes OK
+2025/10/19-20:52:06.120 80de3 Delete type=0 #2312
+2025/10/19-20:52:06.166 80de3 Compacting 1@0 + 1@1 files
+2025/10/19-20:52:06.175 80de3 Generated table #2342@0: 17057 keys, 374120 bytes
+2025/10/19-20:52:06.179 80de3 Generated table #2343@0: 4676 keys, 340494 bytes
+2025/10/19-20:52:06.181 80de3 Generated table #2344@0: 538 keys, 15447 bytes
+2025/10/19-20:52:06.181 80de3 Compacted 1@0 + 1@1 files => 730061 bytes
+2025/10/19-20:52:06.183 80de3 compacted to: files[ 0 3 41 0 0 0 0 ]
+2025/10/19-20:52:06.183 80de3 Delete type=2 #2316
+2025/10/19-20:52:06.183 80de3 Delete type=2 #2341
+2025/10/19-20:52:06.450 80dd3 Compacting 1@1 + 11@2 files
+2025/10/19-20:52:06.476 80dd3 Generated table #2345@1: 25994 keys, 2209152 bytes
+2025/10/19-20:52:06.505 80dd3 Generated table #2346@1: 32711 keys, 2243212 bytes
+2025/10/19-20:52:06.520 80dd3 Generated table #2347@1: 11794 keys, 2138468 bytes
+2025/10/19-20:52:06.536 80dd3 Generated table #2348@1: 10280 keys, 2132869 bytes
+2025/10/19-20:52:06.559 80dd3 Generated table #2349@1: 57071 keys, 2194727 bytes
+2025/10/19-20:52:06.596 80dd3 Generated table #2350@1: 100486 keys, 2252303 bytes
+2025/10/19-20:52:06.629 80dd3 Generated table #2351@1: 95550 keys, 2243188 bytes
+2025/10/19-20:52:06.664 80dd3 Generated table #2352@1: 94198 keys, 2241933 bytes
+2025/10/19-20:52:06.723 80dd3 Generated table #2353@1: 93868 keys, 2241164 bytes
+2025/10/19-20:52:06.761 80dd3 Generated table #2354@1: 96310 keys, 2244103 bytes
+2025/10/19-20:52:06.763 80dd3 Generated table #2355@1: 1092 keys, 26637 bytes
+2025/10/19-20:52:06.763 80dd3 Compacted 1@1 + 11@2 files => 22167756 bytes
+2025/10/19-20:52:06.765 80dd3 compacted to: files[ 0 2 41 0 0 0 0 ]
+2025/10/19-20:52:06.765 80dd3 Delete type=2 #2343
+2025/10/19-20:52:06.765 80dd3 Delete type=2 #2324
+2025/10/19-20:52:06.765 80dd3 Delete type=2 #2325
+2025/10/19-20:52:06.765 80dd3 Delete type=2 #2284
+2025/10/19-20:52:06.765 80dd3 Delete type=2 #2327
+2025/10/19-20:52:06.765 80dd3 Delete type=2 #2326
+2025/10/19-20:52:06.765 80dd3 Delete type=2 #2281
+2025/10/19-20:52:06.765 80dd3 Delete type=2 #2322
+2025/10/19-20:52:06.765 80dd3 Delete type=2 #2323
+2025/10/19-20:52:06.765 80dd3 Delete type=2 #2280
+2025/10/19-20:52:06.765 80dd3 Delete type=2 #2282
+2025/10/19-20:52:06.765 80dd3 Delete type=2 #2283
+2025/10/19-20:52:07.078 80de3 Compacting 1@1 + 4@2 files
+2025/10/19-20:52:07.127 80de3 Generated table #2356@1: 81668 keys, 2230933 bytes
+2025/10/19-20:52:07.155 80de3 Generated table #2357@1: 48096 keys, 2234972 bytes
+2025/10/19-20:52:07.184 80de3 Generated table #2358@1: 47707 keys, 2207941 bytes
+2025/10/19-20:52:07.213 80de3 Generated table #2359@1: 46333 keys, 2212503 bytes
+2025/10/19-20:52:07.214 80de3 Generated table #2360@1: 73 keys, 53090 bytes
+2025/10/19-20:52:07.214 80de3 Compacted 1@1 + 4@2 files => 8939439 bytes
+2025/10/19-20:52:07.216 80de3 compacted to: files[ 0 1 42 0 0 0 0 ]
+2025/10/19-20:52:07.216 80de3 Delete type=2 #2328
+2025/10/19-20:52:07.216 80de3 Delete type=2 #2329
+2025/10/19-20:52:07.216 80de3 Delete type=2 #2342
+2025/10/19-20:52:07.216 80de3 Delete type=2 #2330
+2025/10/19-20:52:07.216 80de3 Delete type=2 #2331
