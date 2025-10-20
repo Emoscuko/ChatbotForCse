@@ -5,7 +5,7 @@ from bs4 import BeautifulSoup
 from datetime import date
 from . import akdeniz_selectors as sel  # optional future extension
 
-MENU_URL = os.getenv('AKDENIZ_MENU_URL', 'https://sks.akdeniz.edu.tr/tr/yemek-menusu')
+MENU_URL = os.getenv('AKDENIZ_MENU_URL', 'https://sks.akdeniz.edu.tr/tr/haftalik_yemek_listesi-6391')
 
 async def fetch_menu_html() -> str:
     async with httpx.AsyncClient() as client:
