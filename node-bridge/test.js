@@ -1,20 +1,19 @@
 import 'dotenv/config';
-console.log('Loaded secret:', process.env.SHARED_SECRET);
-
 import wppconnect from '@wppconnect-team/wppconnect';
-
-// Node 18+ has global fetch. If you’re on older Node, `npm i node-fetch` and import it.
 
 const PY_AI_URL = process.env.PY_AI_URL || 'http://127.0.0.1:8000';
 const SHARED_SECRET = process.env.SHARED_SECRET || 'hello';
 const TRIGGER_PREFIX = process.env.TRIGGER_PREFIX ?? '!ask';
+
+// Don't log secrets in prod
+console.log('Bridge starting with prefix:', TRIGGER_PREFIX || '(none: answer everything)');
 
 wppconnect.create().then(start).catch(console.error);
 
 function shouldAnswer(body) {
   if (!body) return false;
   if (!TRIGGER_PREFIX) return true;            // empty => answer everything
-  return body.trim().startsWith(TRIGGER_PREFIX);
+  return body.trim().toLowerCase().startsWith(TRIGGER_PREFIX.toLowerCase());
 }
 
 async function askPython(prompt, ctx) {
@@ -47,17 +46,17 @@ async function askPython(prompt, ctx) {
 }
 
 async function start(client) {
-  console.log('✅ WhatsApp ↔ Python (Gemini) bridge is live.');
+  console.log('✅ WhatsApp ↔ Python (Strategy Router) is live.');
 
   client.onMessage(async (message) => {
     const body = (message.body || '').trim();
     if (!body) return;
 
-    // Only react to trigger, to avoid flooding groups.
     if (!shouldAnswer(body)) return;
 
-    // strip trigger if present
-    const prompt = TRIGGER_PREFIX ? body.replace(new RegExp(`^${TRIGGER_PREFIX}\\s*`), '') : body;
+    // strip trigger if present (case-insensitive)
+    const regex = new RegExp(`^${TRIGGER_PREFIX.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\s*`, 'i');
+    const prompt = TRIGGER_PREFIX ? body.replace(regex, '') : body;
 
     const ctx = {
       user: message.sender?.pushname || message.sender?.shortName || message.from,
@@ -69,7 +68,6 @@ async function start(client) {
 
     const answer = await askPython(prompt, ctx);
 
-    // Reply back to the same chat/thread
     const to = message.chatId || message.from;
     await client.sendText(to, answer);
   });
