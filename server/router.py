@@ -4,7 +4,8 @@ from .strategies.base import StrategyContext
 from .strategies.teams_announcements import TeamsAnnouncementsStrategy
 from .strategies.dining_menu import DiningMenuStrategy
 from .strategies.fallback import FallbackStrategy
-from .nlp import detect_intent
+from .nlp_ai import detect_intent_ai as detect_intent
+
 
 class StrategyRouter:
     def __init__(self):
