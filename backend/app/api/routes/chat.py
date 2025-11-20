@@ -32,12 +32,21 @@ async def _fetch_dining_context() -> str:
         # --- DEBUG LOG BAŞLANGICI ---
         print(f"DEBUG: Aranan Tarih: {today}")
         print(f"DEBUG: Koleksiyon Adı: dining")
+        print(f"DEBUG: DB Var: {db.db is not None}")
         # --- DEBUG LOG BİTİŞ ---
         
+        # Tüm kayıtları say
+        count = await db.db["dining"].count_documents({})
+        print(f"DEBUG: Toplam dining kayıt sayısı: {count}")
+        
+        # Bugünkü kaydı ara
         menu = await db.db["dining"].find_one({"date": today})
         
         # --- DEBUG LOG SONUÇ ---
         print(f"DEBUG: Bulunan Menü: {menu}")
+        print(f"DEBUG: Menü var mı?: {menu is not None}")
+        if menu:
+            print(f"DEBUG: Menü items: {menu.get('items', [])}")
         # -----------------------
         
         if not menu:

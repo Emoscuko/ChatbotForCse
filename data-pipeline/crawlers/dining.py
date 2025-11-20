@@ -122,7 +122,9 @@ def _fetch_mock_menu() -> Dict:
         ['Ezogelin Çorbası', 'Püreli Hasanpaşa Köfte', 'Bulgur Pilavı', 'Mevsim Salata', 'Revani'],
         ['Yayla Çorbası', 'Tavuk Döner', 'Patates Kızartması', 'Turşu', 'Ayran', 'Hoşaf'],
         ['Tarhana Çorbası', 'İzmir Köfte', 'Pirinç Pilavı', 'Cacık', 'Turşu', 'Meyve'],
-        ['Domates Çorbası', 'Karışık Izgara', 'Kuru Fasulye', 'Pilav', 'Salata', 'Sütlaç']
+        ['Domates Çorbası', 'Karışık Izgara', 'Kuru Fasulye', 'Pilav', 'Salata', 'Sütlaç'],
+        ['Şehriye Çorbası', 'Fırın Tavuk', 'Makarna', 'Yoğurt', 'Ayran', 'Komposto'],
+        ['Sebze Çorbası', 'Köri Soslu Tavuk', 'Pirinç Pilavı', 'Mevsim Salata', 'Kek']
     ]
     
     # Rotate menus based on day of week
