@@ -6,3 +6,4 @@ pydantic
 thefuzz
 python-multipart
 google-genai
+pydantic-settings
