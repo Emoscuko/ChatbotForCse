@@ -21,25 +21,41 @@ SYSTEM_INSTRUCTION = (
 async def _fetch_dining_context() -> str:
     """
     Fetch today's dining menu from MongoDB.
+    Simplified structure: Single list of items per day.
     
     Returns:
         Formatted dining menu string or a 'not found' message.
     """
     try:
         today = date_type.today().strftime("%Y-%m-%d")
+        
+        # --- DEBUG LOG BAŞLANGICI ---
+        print(f"DEBUG: Aranan Tarih: {today}")
+        print(f"DEBUG: Koleksiyon Adı: dining")
+        # --- DEBUG LOG BİTİŞ ---
+        
         menu = await db.db["dining"].find_one({"date": today})
         
-        if not menu:
-            return "No menu found for today."
+        # --- DEBUG LOG SONUÇ ---
+        print(f"DEBUG: Bulunan Menü: {menu}")
+        # -----------------------
         
-        context = (
-            f"Today's Menu ({today}):\n"
-            f"- Soup: {menu.get('soup', 'N/A')}\n"
-            f"- Main Dish: {menu.get('main_dish', 'N/A')}\n"
-            f"- Side Dish: {menu.get('side_dish', 'N/A')}"
-        )
+        if not menu:
+            return f"VERİTABANI BİLGİSİ: {today} tarihi için yemek listesi bulunamadı."
+        
+        # Simplified structure: Just read the 'items' list
+        items = menu.get('items', [])
+        location = menu.get('location', 'Akdeniz Üniversitesi Yemekhanesi')
+        
+        if items:
+            menu_str = ", ".join(items)
+            context = f"VERİTABANI BİLGİSİ ({today} Menüsü - {location}): {menu_str}"
+        else:
+            context = "VERİTABANI BİLGİSİ: Menü kaydı var ama içi boş."
+        
         return context
     except Exception as e:
+        print(f"DEBUG ERROR: {str(e)}")
         return f"Error fetching dining menu: {str(e)}"
 
 
