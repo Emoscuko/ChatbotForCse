@@ -34,7 +34,6 @@ Bunlardan birkaçı şunlar olabilir:
 - Whatsapp mesajlarının kendisi (az sonra sebebini anlatacagim ) ( trigger - calling)
 - Mobil uygulamadaki mesajlar ( Mobil uygulamaya da mesaj kısmı koyalım. Şuan whatsapptaki CSE topluluğunu komple oraya taşıyalım derim. bence bunu bitirmeye götürürüz.) (trigger)
 - 
-TAMAMLAYAMADIM KAFAM KARIŞTI GECE SİZDE İNCELEDİKTEN SONRA TARTIŞIRIZ. 
 
 
 Senaryolar: 
@@ -43,13 +42,6 @@ Senaryolar:
 - Stajda ne yapmam gerekiyordu bilen var mı? | Öncelikle ...... (Burada uzun uzun anlattı.  Akdeniz CSE sitesindeki staj bilgilerinden çektiğini anlattı. altına da kaynak belirtti.)
 - Yemekte bugün ne var | (Yemeği söyler) (zaten cronjob olarak sabah paylaşıldı ama yine de göndermiş oldu sorulduğu için. )
 - Teamsten hoca mesaj yazar. anında buraya mesaj olarak iletilir mesela.  
-
-
-
-
-
-
-
 
 
 
