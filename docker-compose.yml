@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  # MongoDB Servisi
+  mongo:
+    image: mongo:latest
+    container_name: akdeniz_mongo
+    restart: always
+    ports:
+      - "27017:27017"  # Bilgisayarının 27017 portunu konteynere bağlar
+    volumes:
+      - mongo_data:/data/db # Veriler kaybolmasın diye saklar
+
+volumes:
+  mongo_data:

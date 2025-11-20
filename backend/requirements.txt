@@ -1,9 +1,0 @@
-fastapi
-uvicorn
-python-dotenv
-motor
-pydantic
-thefuzz
-python-multipart
-google-genai
-pydantic-settings
