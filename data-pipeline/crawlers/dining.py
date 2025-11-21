@@ -10,8 +10,8 @@ logger = logging.getLogger(__name__)
 
 class DiningCrawler:
     def __init__(self):
-        # The URL you provided
-        self.menu_page_url = "[https://sks.akdeniz.edu.tr/tr/haftalik_yemek_listesi-6391](https://sks.akdeniz.edu.tr/tr/haftalik_yemek_listesi-6391)"
+        # FIXED: Removed markdown brackets []()
+        self.menu_page_url = "https://sks.akdeniz.edu.tr/tr/haftalik_yemek_listesi-6391"
         self.headers = {
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
         }
@@ -28,7 +28,7 @@ class DiningCrawler:
             
             soup = BeautifulSoup(response.content, "html.parser")
             
-            # --- SELECTOR LOGIC BASED ON SCREENSHOT ---
+            # --- SELECTOR LOGIC ---
             # We look for the div with class 'article-text'
             article_text = soup.find("div", class_="article-text")
             
@@ -45,10 +45,10 @@ class DiningCrawler:
 
             img_src = img_tag.get('src')
             
-            # Handle relative URLs (though screenshot shows absolute)
+            # Handle relative URLs
             if not img_src.startswith("http"):
-                # Check if it starts with / or not to join correctly
-                base = "[https://sks.akdeniz.edu.tr](https://sks.akdeniz.edu.tr)"
+                # FIXED: Clean base URL string
+                base = "https://sks.akdeniz.edu.tr"
                 if not img_src.startswith("/"):
                     img_src = f"{base}/{img_src}"
                 else:

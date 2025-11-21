@@ -1,0 +1,27 @@
+# Web Scraping
+requests
+beautifulsoup4
+lxml
+
+# Database (MongoDB Atlas için dnspython şart)
+pymongo
+dnspython
+python-dotenv
+
+# AI & Image Processing
+google-genai
+pillow
+
+# Scheduling
+schedule
+# API Framework
+fastapi
+uvicorn
+
+# Database (Async)
+motor
+dnspython
+python-dotenv
+
+# AI
+google-genai

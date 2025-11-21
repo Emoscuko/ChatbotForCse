@@ -70,6 +70,7 @@ class PipelineLLM:
             IMPORTANT: 
             1. Return ONLY the raw JSON string. Do not use markdown code blocks (```json).
             2. If a day is not readable, skip it.
+            3. Only first letter of the food name should be uppercase.
             """
 
             # Send Text + Image to Gemini
