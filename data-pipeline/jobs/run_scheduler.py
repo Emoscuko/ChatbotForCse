@@ -19,7 +19,8 @@ sys.path.append(parent_dir)
 # --- IMPORTS ---
 # We use the classes we designed in previous steps
 from crawlers.cse_site import CseSiteCrawler
-from services.llm_client import PipelineLLM
+from crawlers.dining import DiningCrawler
+from services.llm_service import PipelineLLM
 from storage.mongo_writer import MongoWriter
 # Placeholder for dining (we will do this later)
 # from crawlers.dining import DiningCrawler 
@@ -46,6 +47,7 @@ class DataPipeline:
         try:
             self.db_writer = MongoWriter()
             self.crawler = CseSiteCrawler()
+            self.dining_crawler = DiningCrawler()
             self.llm = PipelineLLM()
             self.sync_interval = int(os.getenv('SYNC_INTERVAL', 1800)) # Default 30 mins
             logger.info("✅ Pipeline tools initialized successfully.")
@@ -53,6 +55,32 @@ class DataPipeline:
             logger.critical(f"❌ Failed to init pipeline: {e}")
             sys.exit(1)
 
+    def job_sync_menu(self):
+        """Job to sync dining menu data from Image."""
+        try:
+            logger.info("🍽️  Starting DINING MENU sync job...")
+            
+            # 1. Get Image Bytes (Scraping)
+            image_bytes = self.dining_crawler.fetch_menu_image()
+            
+            if not image_bytes:
+                logger.warning("⚠️  No menu image found on the site.")
+                return
+
+            # 2. Send to LLM (Vision Processing)
+            logger.info("🧠 Sending image to Gemini to extract JSON...")
+            menu_json_list = self.llm.extract_menu_from_image(image_bytes)
+            
+            if not menu_json_list:
+                logger.error("❌ LLM could not extract JSON from the image.")
+                return
+            
+            # 3. Save to DB
+            # Ensure your MongoWriter has a save_menu method!
+            self.db_writer.save_menu(menu_json_list)
+            
+        except Exception as e:
+            logger.error(f"❌ Error in menu sync job: {e}", exc_info=True)
     def job_sync_menu(self):
         """Job to sync dining menu data."""
         # We will implement this later
